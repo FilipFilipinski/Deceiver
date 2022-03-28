@@ -19,7 +19,9 @@ def list_of_name(sex: str) -> list:
         csv = f.readlines()[1:]
         names = []
         for i in csv:
-            names.append(Name(* i.strip().split(',')))
+            i = i.strip().split(',')
+            i[1] = 'Male' if i[1] == 'MĘŻCZYZNA' else 'Female'
+            names.append(Name(*i))
     return names
 
 
