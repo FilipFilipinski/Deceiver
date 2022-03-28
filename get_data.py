@@ -8,6 +8,12 @@ class Name:
     number_of_appearances: int
 
 
+@dataclass
+class LastName:
+    LastName: str
+    number_of_appearances: int
+
+
 def list_of_name(sex: str) -> list:
     with open(f'data/data_{sex}.csv') as f:
         csv = f.readlines()[1:]
@@ -17,4 +23,10 @@ def list_of_name(sex: str) -> list:
     return names
 
 
-
+def list_of_last_name(sex: str) -> list:
+    with open(f'data/lastname_{sex}.csv') as f:
+        csv = f.readlines()[1:]
+        last_name = []
+        for i in csv:
+            last_name.append(LastName(*i.strip().split(',')))
+    return last_name

@@ -9,7 +9,7 @@ sex = ['male', 'female']
 
 
 @app.route('/')
-def random_person():  # put application's code here
+def random_person():
     person = random.choice(list_of_name(random.choice(sex)))
     return {'name': person.name, 'last_name': 'lastname', 'sex': person.sex}
 
