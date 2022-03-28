@@ -1,11 +1,16 @@
 from flask import Flask
+from get_data import list_of_name
+import random
 
 app = Flask(__name__)
 
+sex = ['male', 'female']
+
 
 @app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World!'
+def random_person():  # put application's code here
+    person = random.choice(list_of_name(random.choice(sex)))
+    return {'name': person.name, 'last_name': 'lastname', 'sex': person.sex}
 
 
 if __name__ == '__main__':

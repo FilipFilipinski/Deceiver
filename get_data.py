@@ -8,13 +8,13 @@ class Name:
     number_of_appearances: int
 
 
-def list_od_name(sex: str) -> list:
+def list_of_name(sex: str) -> list:
     with open(f'data/data_{sex}.csv') as f:
         csv = f.readlines()[1:]
-        name = []
+        names = []
         for i in csv:
-            name.append(Name(*i.strip().split(',')))
-    return name
+            names.append(Name(*i.strip().split(',')))
+    return names
 
 
 
