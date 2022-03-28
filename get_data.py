@@ -35,7 +35,7 @@ def list_of_name(sex: str) -> list:
 
 
 @cache
-def list_of_last_name(sex: str) -> list:
+def list_of_lastname(sex: str) -> list:
     with open(f'data/lastname_{sex}.csv') as f:
         csv = f.readlines()[1:]
         last_name = []
@@ -44,15 +44,15 @@ def list_of_last_name(sex: str) -> list:
     return last_name
 
 
-def phone_number() -> str:
-    return "".join([str(random.randint(0, 9)) for _ in range(9)])
-
-
 @cache
-def list_country() -> list:
+def list_of_country() -> list:
     with open('data/country.csv') as f:
         csv = f.readlines()[1:]
-        list_of_country = []
+        country = []
         for i in csv:
-            list_of_country.append(Country(*i.strip().split(',')))
-        return list_of_country
+            country.append(Country(*i.strip().split(',')))
+        return country
+
+
+def phone_number() -> str:
+    return "".join([str(random.randint(0, 9)) for _ in range(9)])
