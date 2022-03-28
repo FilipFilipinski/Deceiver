@@ -3,6 +3,7 @@ from get_data import list_of_name
 import random
 
 app = Flask(__name__)
+app.config['JSON_SORT_KEYS'] = False
 
 sex = ['male', 'female']
 
