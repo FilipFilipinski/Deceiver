@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from functools import cache
 
 
 @dataclass
@@ -14,6 +15,7 @@ class LastName:
     number_of_appearances: int
 
 
+@cache
 def list_of_name(sex: str) -> list:
     with open(f'data/data_{sex}.csv') as f:
         csv = f.readlines()[1:]
@@ -25,6 +27,7 @@ def list_of_name(sex: str) -> list:
     return names
 
 
+@cache
 def list_of_last_name(sex: str) -> list:
     with open(f'data/lastname_{sex}.csv') as f:
         csv = f.readlines()[1:]

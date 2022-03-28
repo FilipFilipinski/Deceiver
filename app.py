@@ -18,6 +18,7 @@ def rs(x: str) -> str:
 def random_person():
     gender = random.choice(sex)
     person = [random.choice(list_of_name(gender)), random.choice(list_of_last_name(gender))]
+    print(person)
     return {'name': rs(person[0].name), 'last_name': rs(person[1].lastname), 'sex': rs(person[0].sex)}
 
 
