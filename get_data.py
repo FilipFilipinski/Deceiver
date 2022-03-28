@@ -10,7 +10,7 @@ class Name:
 
 @dataclass
 class LastName:
-    LastName: str
+    lastname: str
     number_of_appearances: int
 
 
@@ -19,7 +19,7 @@ def list_of_name(sex: str) -> list:
         csv = f.readlines()[1:]
         names = []
         for i in csv:
-            names.append(Name(*i.strip().split(',')))
+            names.append(Name(* i.strip().split(',')))
     return names
 
 
