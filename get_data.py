@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from functools import cache
+import random
 
 
 @dataclass
@@ -35,3 +36,7 @@ def list_of_last_name(sex: str) -> list:
         for i in csv:
             last_name.append(LastName(*i.strip().split(',')))
     return last_name
+
+
+def phone_number():
+    return "".join([str(random.randint(0, 9)) for _ in range(9)])

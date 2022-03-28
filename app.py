@@ -1,5 +1,5 @@
 from flask import Flask
-from get_data import list_of_name, list_of_last_name
+from get_data import list_of_name, list_of_last_name, phone_number
 import random
 import unidecode
 
@@ -18,8 +18,8 @@ def rs(x: str) -> str:
 def random_person():
     gender = random.choice(sex)
     person = [random.choice(list_of_name(gender)), random.choice(list_of_last_name(gender))]
-    print(person)
-    return {'name': rs(person[0].name), 'last_name': rs(person[1].lastname), 'sex': rs(person[0].sex)}
+    return {'name': rs(person[0].name), 'last_name': rs(person[1].lastname), 'sex': rs(person[0].sex),
+            'phone': phone_number()}
 
 
 if __name__ == '__main__':
