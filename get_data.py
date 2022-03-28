@@ -16,6 +16,12 @@ class LastName:
     number_of_appearances: int
 
 
+@dataclass
+class Country:
+    country: str
+    short: int
+
+
 @cache
 def list_of_name(sex: str) -> list:
     with open(f'data/data_{sex}.csv') as f:
@@ -38,5 +44,15 @@ def list_of_last_name(sex: str) -> list:
     return last_name
 
 
-def phone_number():
+def phone_number() -> str:
     return "".join([str(random.randint(0, 9)) for _ in range(9)])
+
+
+@cache
+def list_country() -> list:
+    with open('data/country.csv') as f:
+        csv = f.readlines()[1:]
+        list_of_country = []
+        for i in csv:
+            list_of_country.append(Country(*i.strip().split(',')))
+        return list_of_country
