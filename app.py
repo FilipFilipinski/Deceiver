@@ -23,5 +23,12 @@ def random_person():
             'phone': phone_number(), 'country': [person[2].country, person[2].short]}
 
 
+@app.route('/<quantity>')
+def random_person_list(quantity):
+    # function returns false data depending on the given quantity
+    x = [random_person() for _ in range(int(quantity))]
+    return {'data': x}
+
+
 if __name__ == '__main__':
     app.run()
