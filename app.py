@@ -14,7 +14,7 @@ def rs(x: str) -> str:
     return unidecode.unidecode(x)
 
 
-@app.route('/')
+@app.route('/api/')
 def random_person() -> dict:
     gender = random.choice(sex)
     person = [random.choice(list_of_name(gender)), random.choice(list_of_lastname(gender)),
@@ -23,7 +23,7 @@ def random_person() -> dict:
             'phone': phone_number(), 'country': person[2]}
 
 
-@app.route('/<quantity>')
+@app.route('/api/<quantity>')
 def random_people_list(quantity) -> dict:
     # function returns false data depending on the given quantity
     try:

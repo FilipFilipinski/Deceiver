@@ -15,6 +15,26 @@ pip install requirements.txt
 ```bash
 python3 app.py
 ```
+## API Reference
 
+#### Get fake name
+
+```http
+  GET /api/
+```
+
+| Parameter | Type     | Result                |
+| :-------- | :------- | :------------------------- |
+| `none` | `none` | `fake data` |
+
+#### Lots of fake data
+
+```http
+  GET /api/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `quantity`      | `number` | `returns false data in the amount specified above`|
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
