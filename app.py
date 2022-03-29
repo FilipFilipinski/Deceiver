@@ -31,8 +31,7 @@ def random_people_list(quantity) -> dict:
     except ValueError:
         print(ValueError)
         quantity = 1
-    x = [random_person() for _ in range(quantity)]
-    return {'data': x}
+    return {'data': [random_person() for _ in range(quantity)]}
 
 
 if __name__ == '__main__':
