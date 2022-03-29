@@ -15,7 +15,7 @@ def rs(x: str) -> str:
 
 
 @app.route('/')
-def random_person():
+def random_person() -> dict:
     gender = random.choice(sex)
     person = [random.choice(list_of_name(gender)), random.choice(list_of_lastname(gender)),
               random.choice(list_of_country())]
@@ -24,7 +24,7 @@ def random_person():
 
 
 @app.route('/<quantity>')
-def random_people_list(quantity):
+def random_people_list(quantity) -> dict:
     # function returns false data depending on the given quantity
     x = [random_person() for _ in range(int(quantity))]
     return {'data': x}
