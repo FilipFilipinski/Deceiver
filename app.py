@@ -20,12 +20,17 @@ def random_person() -> dict:
     person = [random.choice(list_of_name(gender)), random.choice(list_of_lastname(gender)),
               random.choice(list_of_country())]
     return {'name': rs(person[0].name), 'last_name': rs(person[1].lastname), 'sex': rs(person[0].sex),
-            'phone': phone_number(), 'country': [person[2].country, person[2].short]}
+            'phone': phone_number(), 'country': person[2]}
 
 
 @app.route('/<quantity>')
 def random_people_list(quantity) -> dict:
     # function returns false data depending on the given quantity
+    try:
+        int(quantity)
+    except ValueError:
+        print(ValueError)
+        quantity = 1
     x = [random_person() for _ in range(int(quantity))]
     return {'data': x}
 
