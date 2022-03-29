@@ -37,11 +37,7 @@ def list_of_name(sex: str) -> list:
 @cache
 def list_of_lastname(sex: str) -> list:
     with open(f'data/lastname_{sex}.csv') as f:
-        csv = f.readlines()[1:]
-        last_name = []
-        for i in csv:
-            last_name.append(LastName(*i.strip().split(',')))
-    return last_name
+        return [LastName(*i.strip().split(',')) for i in f.readlines()[1:]]
 
 
 @cache
