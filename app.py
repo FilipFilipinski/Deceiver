@@ -24,7 +24,7 @@ def random_person():
 
 
 @app.route('/<quantity>')
-def random_person_list(quantity):
+def random_people_list(quantity):
     # function returns false data depending on the given quantity
     x = [random_person() for _ in range(int(quantity))]
     return {'data': x}
