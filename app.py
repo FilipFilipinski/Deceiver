@@ -27,11 +27,11 @@ def random_person() -> dict:
 def random_people_list(quantity) -> dict:
     # function returns false data depending on the given quantity
     try:
-        int(quantity)
+        quantity = int(quantity)
     except ValueError:
         print(ValueError)
         quantity = 1
-    x = [random_person() for _ in range(int(quantity))]
+    x = [random_person() for _ in range(quantity)]
     return {'data': x}
 
 
