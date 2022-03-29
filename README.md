@@ -35,6 +35,6 @@ python3 app.py
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `quantity`      | `number` | `returns false data in the amount specified above`|
+| `quantity`      | `number` | `returns fake data in the amount specified above`|
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
