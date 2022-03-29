@@ -36,13 +36,13 @@ def list_of_name(sex: str) -> list:
 @cache
 def list_of_lastname(sex: str) -> list:
     with open(f'data/lastname_{sex}.csv') as f:
-        return [LastName(*i.strip().split(',')) for i in f.readlines()[1:]]
+        return [LastName(*lastname.strip().split(',')) for lastname in f.readlines()[1:]]
 
 
 @cache
 def list_of_country() -> list:
     with open('data/country.csv') as f:
-        return [Country(*i.strip().split(',')) for i in f.readlines()[1:]]
+        return [Country(*name.strip().split(',')) for name in f.readlines()[1:]]
 
 
 def phone_number() -> str:
