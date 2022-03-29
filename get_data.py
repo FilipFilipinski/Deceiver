@@ -47,11 +47,7 @@ def list_of_lastname(sex: str) -> list:
 @cache
 def list_of_country() -> list:
     with open('data/country.csv') as f:
-        csv = f.readlines()[1:]
-        country = []
-        for i in csv:
-            country.append(Country(*i.strip().split(',')))
-        return country
+        return [Country(*i.strip().split(',')) for i in f.readlines()[1:]]
 
 
 def phone_number() -> str:
