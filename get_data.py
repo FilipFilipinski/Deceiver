@@ -25,9 +25,8 @@ class Country:
 @cache
 def list_of_name(sex: str) -> list:
     with open(f'data/data_{sex}.csv') as f:
-        csv = f.readlines()[1:]
         names = []
-        for i in csv:
+        for i in f.readlines()[1:]:
             i = i.strip().split(',')
             i[1] = 'Male' if i[1] == 'MĘŻCZYZNA' else 'Female'
             names.append(Name(*i))
