@@ -1,12 +1,13 @@
 from flask import Flask
 from get_data import list_of_name, list_of_lastname, phone_number, list_of_country
+from models.person import Person
 import random
 import unidecode
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 
-sex = ['male', 'female']
+sex = ["male", "female"]
 
 
 def rs(x: str) -> str:
@@ -16,11 +17,7 @@ def rs(x: str) -> str:
 
 @app.route('/api/')
 def random_person() -> dict:
-    gender = random.choice(sex)
-    person = [random.choice(list_of_name(gender)), random.choice(list_of_lastname(gender)),
-              random.choice(list_of_country())]
-    return {'name': rs(person[0].name), 'last_name': rs(person[1].lastname), 'sex': rs(person[0].sex),
-            'phone': phone_number(), 'country': person[2]}
+    return Person().generate()
 
 
 @app.route('/api/<quantity>')
