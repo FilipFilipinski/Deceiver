@@ -1,4 +1,3 @@
-from dataclasses import dataclass
 from models.lastname import LastName
 from models.country import Country
 from models.name import Name

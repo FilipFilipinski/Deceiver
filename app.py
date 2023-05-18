@@ -26,10 +26,8 @@ def random_people_list(quantity) -> dict:
     try:
         quantity = int(quantity)
     except ValueError:
-        print(ValueError)
         quantity = 1
-    quantity = 10000 if quantity > 10000 else quantity
-    return {'data': [random_person() for _ in range(quantity)]}
+    return {'data': [random_person() for _ in range(1 if quantity <= 0 else quantity)]}
 
 
 if __name__ == '__main__':
